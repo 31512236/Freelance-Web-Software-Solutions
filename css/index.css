@@ -1,0 +1,178 @@
+/*Imagen de fondo*/
+body {
+    /* 1. Ruta de tu imagen (como el CSS está en la carpeta css, salimos con ../ para buscar imagenes) */
+    background-image: url('../imagenes/fondo-index.jpeg');
+    
+    /* 2. Evita que la imagen se duplique como mosaico si la pantalla es muy grande */
+    background-repeat: no-repeat;
+    
+    /* 3. Hace que el fondo se quede congelado y no se mueva al hacer scroll */
+    background-attachment: fixed;
+    
+    /* 4. Centra la imagen de fondo para que se vea perfecta */
+    background-position: center;
+    
+    /* 5. Fuerza a la imagen a estirarse y cubrir el 100% de la pantalla sin deformarse */
+    background-size: cover;
+    
+    /* Bloqueamos el scroll por que la imagen de fondo es fija*/
+    overflow: hidden; /* Oculta barras de scroll y bloquea el desplazamiento */
+    height: 100vh;    /* Fuerza al body a medir exactamente el alto de la pantalla visible */
+    
+    /* Márgenes limpios */
+    margin: 0;
+    padding: 0;
+}
+
+/*  Versión móvil (se activa en pantallas menores a 768px) */
+@media (max-width: 768px) {
+    body { 
+        background-image: url('../imagenes/fondo-index-movil-responsive.png');
+    }
+}
+
+/*Centra el letrero JORMONTIELO*/ 
+.header-inicio {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el logo */
+    width: 100%;             /* Asegura que el contenedor abarque toda la pantalla */
+    margin-top: 100px;       /* El espacio arriba que querías */
+}
+
+/* Contenedor general para centrar el contenido de la página */
+.contenedor-principal {
+    display: flex;
+    justify-content: flex-start; /* 1. Cambiamos de 'center' a 'flex-start' para moverlo a la izquierda */
+    align-items: center;
+    
+    padding: 20px;
+    padding-left: 28%; /* 2. Empuja la tarjeta desde la izquierda para acomodarla justo sobre el camión (ve ajustando este % si hace falta) */
+    
+    margin-top: -120px; /* 3. Usamos un margen negativo para subir la tarjeta y tapar el letrero blanco trasero */
+}
+
+/* La tarjeta contenedora */
+.tarjeta-video-presentacion {
+    width: 100%;
+    max-width: 640px; /* Tamaño ideal estilo miniatura de YouTube */
+    background-color: #1e1e24; /* Un fondo oscuro elegante para esperar el video */
+    border-radius: 16px; /* Bordes redondeados sutiles y modernos */
+    padding: 12px; /* Espacio interno por si luego metes el diseño de casete */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Sombrita para que flote en el lavanda */
+}
+
+/* El rectángulo con proporción 16:9 en la que se mostrará el video de presentación (diseño responsivo) */
+.espacio-video {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Esto mantiene la forma de video automáticamente */
+    background-color: #0b0b0d; /* Fondo aún más oscuro simulando pantalla apagada */
+    border-radius: 12px; /* Redondeado interno */
+}
+
+.texto-redes{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el logo */
+    width: 100%;             /* Asegura que el contenedor abarque toda la pantalla */
+    margin-top: 100px;       /* El espacio arriba que querías */ 
+    color: white; 
+}
+
+.boton-redes{
+    display: flex;
+    flex-direction: column; /* Pone los botones uno abajo del otro */
+    align-items: center; /* Centra horizontalmente el logo */
+    gap: 20px;              /* Espacio de separación limpio entre los dos botones */
+    width: 100%;             /* Asegura que el contenedor abarque toda la pantalla */
+    margin-top: 20px;       /* Separación con el texto de arriba */
+}
+
+.boton-navegacion {
+    display: flex;
+    flex-direction: row;     /* Los alinea horizontalmente en fila */
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center;     /* Los nivela verticalmente entre sí */
+    gap: 40px;               /* Subí el espacio a 40px para que respiren un poco más por el tamaño de las imágenes */
+    width: 100%;             /* Abarca toda la pantalla para poder calcular el centro */
+    margin-top: 50px;        /* Espacio de separación con la sección de arriba */
+    margin-top: 20px;        /* Espacio respecto al texto de "ó conoce más en:" */
+    margin-bottom: 60px;     /* Agrega el espacio con el fin de la pantalla */
+}
+
+/*Efectos de click en los botones para navegar dentro del sitio web*/
+/* 1. Preparamos las imágenes para que el movimiento sea suave */
+.boton-navegacion a img {
+    transition: transform 0.2s ease-in-out; /* Controla la velocidad y suavidad del efecto */
+}
+
+/* 2. El efecto al pasar el cursor (Hover) */
+.boton-navegacion a img:hover {
+    transform: scale(1.08); /* Crece un 8% su tamaño original. Si lo quieres más grande, prueba con 1.1 */
+    cursor: pointer;        /* Asegura que aparezca la manita de click */
+}
+
+/* 3. El efecto cuando mantienes presionado el click (Opcional pero recomendado) */
+.boton-navegacion a img:active {
+    transform: scale(0.95); /* Se encoge un poquito al hacer click, simulando un botón real */
+}
+
+/*=====================================*/
+/*ANIMACION DEL ALETEO DE LOS COLIBRÍES*/
+/*=====================================*/
+/* Aseguramos que el contenedor del video sea el marco de referencia */
+.espacio-video {
+    position: relative; 
+}
+/* 1.- Definimos el tamaño y la imagen inicial del colibrí*/
+.colibri{
+    width: 150px; /*Ajusta el ancho según el tamaño de tu dibujo*/
+    height: 150px; /*Ajusta el largo del dibujo*/
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+
+    /*Imagen alas hacia arriba*/
+    background-image: url('.../imagenes/colibri_beige.png');
+
+    /*Conectamos la animación: dura 0.15 segundos, es infinita y cambia de golpe (steps)*/
+    animation: aletear 0.18s steps(1) infinite; 
+
+    /*De momento dejamos la posición absoluta, luego daremos el efecto de entrada*/
+    position: absolute; 
+}
+
+/*2.- Hacemos el intercambio de imágenes*/
+@keyframes aletear{
+    0% {
+        /*Al inicio del ciclo (0%) alas arriba*/
+        background-image: url('../imagenes/colibri_beige.png');
+    }
+    50% {
+        /*A la mitad del ciclo (50%), cambia las alas abajo*/
+        background-image: url('../imagenes/colibri_beige_alas.png');
+    }
+}
+
+/* =========================================================
+   UBICACIÓN INDIVIDUAL DE CADA COLIBRÍ
+   ========================================================= */
+
+/* 1. Colibrí Izquierdo Superior (Entre la palabra JOR y el rectángulo negro) */
+#colibri-izq-1 {
+    top: -60px;       /* Lo sube por encima del borde superior del video */
+    left: 80px;       /* Lo desplaza a la derecha para alinearlo bajo el nombre */
+}
+
+/* 2. Colibrí Izquierdo Inferior (A la mitad del rectángulo negro, pero afuera a la izquierda) */
+#colibri-izq-2 {
+    top: 50%;         /* Lo baja a la mitad del contenedor */
+    transform: translateY(-50%); /* Lo centra perfectamente en el eje vertical */
+    left: -85px;      /* Lo saca por completo hacia el lado izquierdo */
+}
+
+/* 3. Colibrí Derecho (Al lado derecho del rectángulo, abajo casi al final y afuera) */
+#colibri-der-1 {
+    bottom: 20px;     /* Lo alinea cerca de la esquina inferior */
+    right: -85px;     /* Lo saca por completo hacia el lado derecho */
+    transform: scaleX(-1); /* OPCIONAL: Voltea al colibrí horizontalmente para que mire hacia el video */
+}
+

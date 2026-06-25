@@ -1,0 +1,43 @@
+/*Imagen de fondo*/
+body {
+    /* 1. Ruta de tu imagen (como el CSS está en la carpeta css, salimos con ../ para buscar imagenes) */
+    background-image: url('../imagenes/fondo-eventos.jpeg');
+    
+    /* 2. Evita que la imagen se duplique como mosaico si la pantalla es muy grande */
+    background-repeat: no-repeat;
+    
+    /* 3. Hace que el fondo se quede congelado y no se mueva al hacer scroll */
+    background-attachment: fixed;
+    
+    /* 4. Centra la imagen de fondo para que se vea perfecta */
+    background-position: center;
+    
+    /* 5. Fuerza a la imagen a estirarse y cubrir el 100% de la pantalla sin deformarse */
+    background-size: cover;
+    
+    
+    /* Márgenes limpios */
+    margin: 0;
+    padding: 0;
+}
+
+/*  Versión móvil (se activa en pantallas menores a 768px) */
+@media (max-width: 768px) {
+    body { 
+        background-image: url('../imagenes/fondo-eventos-movil-responsive.png');
+    }
+}
+
+/* Contenedor opcional para que tu texto no se pegue a los bordes */
+.contenido-pantalla {
+    padding: 40px 20px;
+    color: white; /* Color de texto para que contraste si tu fondo es oscuro */
+}
+
+/*Centra el letrero JORMONTIELO*/ 
+.header-inicio {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el logo */
+    width: 100%;             /* Asegura que el contenedor abarque toda la pantalla */
+    margin-top: 30px;       /* El espacio arriba que querías */
+}
