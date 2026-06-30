@@ -27,7 +27,7 @@ body {
 /*  Versión móvil (se activa en pantallas menores a 768px) */
 @media (max-width: 768px) {
     body { 
-        background-image: url('../imagenes/fondo-index-movil-responsive.png');
+        background-image: url('../imagenes/fondo-index-movil-responsive.jpeg');
     }
 }
 
@@ -69,21 +69,36 @@ body {
     border-radius: 12px; /* Redondeado interno */
 }
 
-.texto-redes{
+/* Contenedor unificado para ubicar el bloque sobre el poste */
+.bloque-redes-poste {
+    position: absolute;
+    right: 16%;             /* Te alinea horizontalmente con el poste de madera */
+    top: 58%;               /* Te posiciona justo debajo del papel blanco */
+    width: 260px;           /* Limita el ancho para que no se salga de la madera */
     display: flex;
-    justify-content: center; /* Centra horizontalmente el logo */
-    width: 100%;             /* Asegura que el contenedor abarque toda la pantalla */
-    margin-top: 100px;       /* El espacio arriba que querías */ 
-    color: white; 
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;              /* Separa el texto de los stickers uniformemente */
+    z-index: 10;            /* Hace que flote por encima del fondo del camión */
+}
+
+.texto-redes{
+   color: white; 
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    margin: 0;             /* Eliminamos el margin-top de 100px que te lo mandaba hacia abajo */
+    padding: 0;
+    font-family: sans-serif; /* O la tipografía de tu preferencia */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Sombra negra para que sea ultra legible sobre el fondo oscuro */ 
 }
 
 .boton-redes{
     display: flex;
     flex-direction: column; /* Pone los botones uno abajo del otro */
     align-items: center; /* Centra horizontalmente el logo */
-    gap: 20px;              /* Espacio de separación limpio entre los dos botones */
+    gap: 10px;              /* Espacio de separación limpio entre los dos botones */
     width: 100%;             /* Asegura que el contenedor abarque toda la pantalla */
-    margin-top: 20px;       /* Separación con el texto de arriba */
 }
 
 .boton-navegacion {
